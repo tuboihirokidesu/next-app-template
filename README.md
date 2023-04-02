@@ -1,38 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js + Tailwind CSS + Supabase テンプレート
 
-## Getting Started
+このプロジェクトは、Next.js、Tailwind CSS、Supabase を使用して Web アプリケーションを構築するためのテンプレートです。以下の手順に従って、ローカルマシンでこのテンプレートを実行することができます。
 
-First, run the development server:
+## インストール
+
+このプロジェクトを実行するには、ローカルマシンに Node.js と Yarn がインストールされている必要があります。
+
+1. このリポジトリをクローンします。
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/tuboihirokidesu/next-app-template.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. クローンしたリポジトリのディレクトリに移動します。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd next-app-template
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. 依存関係をインストールします。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. 環境変数を設定します。
 
-## Learn More
+```bash
+cp .env.local.example .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. [Supabase](https://supabase.io/)でアカウントを作成し、プロジェクトを作成して、プロジェクトの API キーを`.env.local`ファイルに追加します。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NEXT_PUBLIC_SUPABASE_URL=<your_supabase_url>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<your_supabase_anon_key>
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 開発サーバーの実行
 
-## Deploy on Vercel
+1. 開発サーバーを起動します。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+yarn dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. ブラウザで`http://localhost:3000`にアクセスして、アプリケーションが正常に実行されていることを確認します。
+
+## 本番用ビルド
+
+1. アプリケーションを本番用にビルドします。
+
+```bash
+yarn build
+```
+
+2. アプリケーションを起動します。
+
+```bash
+yarn start
+```
+
+3. ブラウザで`http://localhost:3000`にアクセスして、アプリケーションが正常に実行されていることを確認します。
+
+## テスト
+
+このプロジェクトには、自動テスト用のテンプレートが含まれていません。テストを実装する場合は、Jest や React Testing Library などのツールを使用して、適切なテストを作成する必要があります。
